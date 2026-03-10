@@ -1054,7 +1054,7 @@ handle_interrupt (pixma_t * s, int timeout)
   {
     if (buf[4] & 1)
     {
-      s->events = PIXMA_EV_BUTTON1
+      s->events = PIXMA_EV_BUTTON1;
     }
   }
   else if (s->cfg->pid == LIDE400_PID)
