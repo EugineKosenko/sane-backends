@@ -2097,8 +2097,6 @@ ScanSession CommandSetGl128::calculate_scan_session(const Genesys_Device* dev,
     session.params.color_filter = settings.color_filter;
     session.params.contrast_adjustment = dev->settings.contrast;
     session.params.brightness_adjustment = dev->settings.brightness;
-    // Not used for GL128: LPERIOD comes from gl128_timing().
-    session.params.exposure_lperiod = dev->settings.exposure_lperiod;
     session.params.flags = ScanFlag::NONE;
 
     session.full_resolution = optical_res;
