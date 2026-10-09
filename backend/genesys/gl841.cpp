@@ -1034,7 +1034,6 @@ ScanSession CommandSetGl841::calculate_scan_session(const Genesys_Device* dev,
     session.params.color_filter = dev->settings.color_filter;
     session.params.contrast_adjustment = dev->settings.contrast;
     session.params.brightness_adjustment = dev->settings.brightness;
-    session.params.exposure_lperiod = dev->settings.exposure_lperiod;
     session.params.flags = ScanFlag::NONE;
     compute_session(dev, session, sensor);
 
@@ -1518,7 +1517,6 @@ void CommandSetGl841::init_regs_for_shading(Genesys_Device* dev, const Genesys_S
     session.params.color_filter = dev->settings.color_filter;
     session.params.contrast_adjustment = dev->settings.contrast;
     session.params.brightness_adjustment = dev->settings.brightness;
-    session.params.exposure_lperiod = dev->settings.exposure_lperiod;
     session.params.flags = ScanFlag::DISABLE_SHADING |
                            ScanFlag::DISABLE_GAMMA;
     compute_session(dev, session, calib_sensor);
@@ -1595,7 +1593,6 @@ static void ad_fe_offset_calibration(Genesys_Device* dev, const Genesys_Sensor& 
     session.params.color_filter = dev->settings.color_filter;
     session.params.contrast_adjustment = dev->settings.contrast;
     session.params.brightness_adjustment = dev->settings.brightness;
-    session.params.exposure_lperiod = dev->settings.exposure_lperiod;
     session.params.flags = ScanFlag::DISABLE_SHADING |
                            ScanFlag::DISABLE_GAMMA |
                            ScanFlag::SINGLE_LINE |
@@ -1715,7 +1712,6 @@ void CommandSetGl841::offset_calibration(Genesys_Device* dev, const Genesys_Sens
     session.params.color_filter = dev->settings.color_filter;
     session.params.contrast_adjustment = dev->settings.contrast;
     session.params.brightness_adjustment = dev->settings.brightness;
-    session.params.exposure_lperiod = dev->settings.exposure_lperiod;
     session.params.flags = ScanFlag::DISABLE_SHADING |
                            ScanFlag::DISABLE_GAMMA |
                            ScanFlag::SINGLE_LINE |
@@ -2067,7 +2063,6 @@ void CommandSetGl841::init_regs_for_warmup(Genesys_Device* dev, const Genesys_Se
     session.params.color_filter = dev->settings.color_filter;
     session.params.contrast_adjustment = 0;
     session.params.brightness_adjustment = 0;
-    session.params.exposure_lperiod = dev->settings.exposure_lperiod;
     session.params.flags = flags;
 
     compute_session(dev, session, sensor);
