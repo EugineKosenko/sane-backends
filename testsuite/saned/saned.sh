@@ -61,17 +61,15 @@ until grep -q "run_standalone: waiting for control connection" "$SANED_LOG" 2>/d
     i=$((i + 1))
     if test "$i" -gt "$READY_TIMEOUT"; then
         TEST_FAILED=1
-        echo "saned test: saned not listening after $READY_TIMEOUT seconds" >&2
+        if grep -q "bind failed" "$SANED_LOG" 2>/dev/null; then
+            echo "saned test: port 6566 is already in use" >&2
+        else
+            echo "saned test: saned not listening after $READY_TIMEOUT seconds" >&2
+        fi
         exit 1
     fi
     sleep 1
 done
-
-if grep -q "bind failed" "$SANED_LOG"; then
-    TEST_FAILED=1
-    echo "saned test: port 6566 is already in use" >&2
-    exit 1
-fi
 
 # Test whether a second saned on the same port exits cleanly.
 status=0
