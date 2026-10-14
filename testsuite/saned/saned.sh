@@ -34,7 +34,8 @@ cleanup() {
     test -n "$SANE_CONFIG_DIR" && rm -rf "$SANE_CONFIG_DIR"
 }
 
-trap cleanup EXIT INT TERM
+trap cleanup EXIT
+trap 'exit 1' INT TERM
 
 if test ! -x "$SANED"; then
     echo "saned test: saned not built, skipping"

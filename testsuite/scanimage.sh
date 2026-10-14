@@ -53,7 +53,8 @@ cleanup() {
     test -n "$CONFDIR" && rm -rf "$CONFDIR"
 }
 
-trap cleanup EXIT INT TERM
+trap cleanup EXIT
+trap 'exit 1' INT TERM
 
 echo "---> Trying flatbed scanner"
 "$SCANIMAGE" -d test -T || exit 1
