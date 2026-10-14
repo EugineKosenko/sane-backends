@@ -39,12 +39,12 @@ trap 'exit 1' INT TERM
 
 if test ! -x "$SANED"; then
     echo "saned test: saned not built, skipping"
-    exit 0
+    exit 77
 fi
 
 if test ! -f ../../backend/libsane-test.la; then
     echo "saned test: test backend not built, skipping"
-    exit 0
+    exit 77
 fi
 
 printf 'net\ntest\n' > "$SANE_CONFIG_DIR/dll.conf"
