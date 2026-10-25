@@ -1,0 +1,6 @@
+#
+# watch file for sane-backends
+#
+version=4
+opts="searchmode=plain" \
+ https://gitlab.com/sane-project/backends/tags?sort=updated_desc -/archive/v?\d[\d.]+/backends-@ANY_VERSION@@ARCHIVE_EXT@ debian uupdate

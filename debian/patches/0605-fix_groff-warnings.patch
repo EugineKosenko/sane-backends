@@ -1,0 +1,20 @@
+Description: Fix some groff warnings
+Author: Jörg Frings-Fürst <debian@jff.email>
+Bug: https://gitlab.com/sane-project/backends/-/issues/433
+Last-Update: 2021-02-17
+---
+This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
+Index: trunk/doc/sane-artec_eplus48u.man
+===================================================================
+--- trunk.orig/doc/sane-artec_eplus48u.man
++++ trunk/doc/sane-artec_eplus48u.man
+@@ -44,8 +44,7 @@ or
+ You can find it on the installation CD that was provided by the manufacturer,
+ normally in the directory Win98, WinMe or similar.
+ If the Windows-driver is installed on your computer, then you can also
+-find the firmware file under
+-.IR c:\\windows\\system32\\drivers .
++find the firmware file under c:\\windows\\system32\\drivers.
+ 
+ .SH CONFIGURATION
+ The contents of the

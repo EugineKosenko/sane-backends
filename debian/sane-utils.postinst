@@ -1,0 +1,80 @@
+#!/bin/sh
+set -e
+. /usr/share/debconf/confmodule
+
+SANED_DEFAULT=/etc/default/saned
+
+#
+# POSIX-compliant shell function
+# to check for the existence of a command
+# Return 0 if found
+#
+pathfind() {
+    OLDIFS="$IFS"
+    IFS=:
+    for p in $PATH; do
+        if [ -x "$p/$*" ]; then
+            IFS="$OLDIFS"
+            return 0
+        fi
+    done
+    IFS="$OLDIFS"
+    return 1
+}
+
+
+
+if [ "$1" = "configure" ] || [ "$1" = "reconfigure" ]; then
+    db_get sane-utils/saned_run
+    RUN_SANED="$RET"
+
+    db_get sane-utils/saned_scanner_group
+    SANED_IN_SCANNER="$RET"
+
+    if [ -f /etc/inetd.conf ]; then
+	# Add saned service, disabled by default
+	if pathfind update-inetd ; then
+	    update-inetd --add "#<off># sane-port\tstream\ttcp\tnowait\tsaned:saned\t/usr/sbin/saned saned"
+	fi
+     fi
+
+    # Stop debconf; output to stdout after this point. update-inetd needs debconf.
+    db_stop
+
+    # Add the scanner system group if it doesn't exist
+    if ! getent group | grep -q "^scanner:"; then
+	echo "Adding scanner group..."
+	addgroup --quiet --system scanner || true
+    fi
+
+    # Create saned user/group if they do not exist
+    if ! getent passwd | grep -q "^saned:"; then
+	echo "Adding saned group and user..."
+	adduser --home /var/lib/saned  --quiet --system --group saned || true
+    fi
+
+    if [ ! -d /var/lib/saned ] ; then
+	usermod -d /var/lib/saned saned
+    fi
+
+    if [ "$SANED_IN_SCANNER" = "true" ]; then
+	adduser --quiet saned scanner
+    else
+	if id saned | grep -q "groups=.*\(scanner\)"; then
+	    deluser --quiet saned scanner
+	fi
+    fi
+
+    if [ -e $SANED_DEFAULT ]; then
+	if [ "$RUN_SANED" = "true" ]; then
+	    RUN_SANED=yes
+	else
+	    RUN_SANED=no
+	fi
+
+	sed -e "s/^ *RUN=.*/RUN=$RUN_SANED/" < $SANED_DEFAULT > $SANED_DEFAULT.tmp
+	mv -f $SANED_DEFAULT.tmp $SANED_DEFAULT
+    fi
+fi
+
+#DEBHELPER#

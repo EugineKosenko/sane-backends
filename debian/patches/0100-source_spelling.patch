@@ -1,0 +1,194 @@
+Description: Correct source typos
+Author: Jörg Frings-Fürst <debian@jff.email>
+Forwarded: not-needed
+Last-Update: 2022-02-04
+----
+This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
+Index: trunk/backend/epsonds-jpeg.c
+===================================================================
+--- trunk.orig/backend/epsonds-jpeg.c
++++ trunk/backend/epsonds-jpeg.c
+@@ -194,7 +194,7 @@ void eds_decode_jpeg(epsonds_scanner*s,
+ 				}
+ 			}
+         }
+-		DBG(10,"decodded lines = %d\n", sum);
++		DBG(10,"decoded lines = %d\n", sum);
+ 
+ 		// abandon unncessary data
+ 		if ((JDIMENSION)sum < jpeg_cinfo.output_height)
+Index: trunk/frontend/jpegtopdf.c
+===================================================================
+--- trunk.orig/frontend/jpegtopdf.c
++++ trunk/frontend/jpegtopdf.c
+@@ -289,7 +289,7 @@ SANE_Int sane_pdf_start_doc( void *pw )
+ 		goto EXIT;
+ 	}
+ 	if ( ( ldata = re_write_if_fail( pwork->fd, str, len ) ) < 0 ) {
+-		fprintf ( stderr, " Error is occured in re_write_if_fail.\n" );
++		fprintf ( stderr, " Error is occurred in re_write_if_fail.\n" );
+ 		goto EXIT;
+ 	}
+ 
+@@ -330,7 +330,7 @@ SANE_Int sane_pdf_end_doc( void *pw )
+ 		goto EXIT;
+ 	}
+ 	if ( ( ldata = re_write_if_fail( pwork->fd, str, len ) ) < 0 ) {
+-		fprintf ( stderr, " Error is occured in re_write_if_fail.\n" );
++		fprintf ( stderr, " Error is occurred in re_write_if_fail.\n" );
+ 		goto EXIT;
+ 	}
+ 
+@@ -350,7 +350,7 @@ SANE_Int sane_pdf_end_doc( void *pw )
+ 			goto EXIT;
+ 		}
+ 		if ( ( ldata = re_write_if_fail( pwork->fd, str, len ) ) < 0 ) {
+-			fprintf ( stderr, " Error is occured in re_write_if_fail.\n" );
++			fprintf ( stderr, " Error is occurred in re_write_if_fail.\n" );
+ 			goto EXIT;
+ 		}
+ 
+@@ -364,7 +364,7 @@ SANE_Int sane_pdf_end_doc( void *pw )
+ 		goto EXIT;
+ 	}
+ 	if ( ( ldata = re_write_if_fail( pwork->fd, str, len ) ) < 0 ) {
+-		fprintf ( stderr, " Error is occured in re_write_if_fail.\n" );
++		fprintf ( stderr, " Error is occurred in re_write_if_fail.\n" );
+ 		goto EXIT;
+ 	}
+ 
+@@ -380,7 +380,7 @@ SANE_Int sane_pdf_end_doc( void *pw )
+ 		goto EXIT;
+ 	}
+ 	if ( ( ldata = re_write_if_fail( pwork->fd, str, len ) ) < 0 ) {
+-		fprintf ( stderr, " Error is occured in re_write_if_fail.\n" );
++		fprintf ( stderr, " Error is occurred in re_write_if_fail.\n" );
+ 		goto EXIT;
+ 	}
+ 
+@@ -390,7 +390,7 @@ SANE_Int sane_pdf_end_doc( void *pw )
+ 		goto EXIT;
+ 	}
+ 	if ( _get_current_time( &tm, &sign_c, &tz_h, &tz_m ) == SANE_ERR ) {
+-		fprintf ( stderr, " Error is occured in _get_current_time.\n" );
++		fprintf ( stderr, " Error is occurred in _get_current_time.\n" );
+ 		goto EXIT;
+ 	}
+ 	/* Dates format */
+@@ -408,7 +408,7 @@ SANE_Int sane_pdf_end_doc( void *pw )
+ 		goto EXIT;
+ 	}
+ 	if ( ( ldata = re_write_if_fail( pwork->fd, str, len ) ) < 0 ) {
+-		fprintf ( stderr, " Error is occured in re_write_if_fail.\n" );
++		fprintf ( stderr, " Error is occurred in re_write_if_fail.\n" );
+ 		goto EXIT;
+ 	}
+ 
+@@ -424,7 +424,7 @@ SANE_Int sane_pdf_end_doc( void *pw )
+ 		goto EXIT;
+ 	}
+ 	if ( ( ldata = re_write_if_fail( pwork->fd, str, len ) ) < 0 ) {
+-		fprintf ( stderr, " Error is occured in re_write_if_fail.\n" );
++		fprintf ( stderr, " Error is occurred in re_write_if_fail.\n" );
+ 		goto EXIT;
+ 	}
+ 
+@@ -438,7 +438,7 @@ SANE_Int sane_pdf_end_doc( void *pw )
+ 		goto EXIT;
+ 	}
+ 	if ( ( ldata = re_write_if_fail( pwork->fd, str, len ) ) < 0 ) {
+-		fprintf ( stderr, " Error is occured in re_write_if_fail.\n" );
++		fprintf ( stderr, " Error is occurred in re_write_if_fail.\n" );
+ 		goto EXIT;
+ 	}
+ 	w_count += SANE_PDF_FIRST_PAGE_ID - 1;
+@@ -454,7 +454,7 @@ SANE_Int sane_pdf_end_doc( void *pw )
+ 				goto EXIT;
+ 			}
+ 			if ( ( ldata = re_write_if_fail( pwork->fd, str, len ) ) < 0 ) {
+-				fprintf ( stderr, " Error is occured in re_write_if_fail.\n" );
++				fprintf ( stderr, " Error is occurred in re_write_if_fail.\n" );
+ 				goto EXIT;
+ 			}
+ 			w_count ++;
+@@ -476,7 +476,7 @@ SANE_Int sane_pdf_end_doc( void *pw )
+ 		goto EXIT;
+ 	}
+ 	if ( ( ldata = re_write_if_fail( pwork->fd, str, len ) ) < 0 ) {
+-		fprintf ( stderr, " Error is occured in re_write_if_fail.\n" );
++		fprintf ( stderr, " Error is occurred in re_write_if_fail.\n" );
+ 		goto EXIT;
+ 	}
+ 
+@@ -572,7 +572,7 @@ SANE_Int sane_pdf_start_page(
+ 		goto EXIT;
+ 	}
+ 	if ( ( ldata = re_write_if_fail( pwork->fd, str, len ) ) < 0 ) {
+-		fprintf ( stderr, " Error is occured in re_write_if_fail.\n" );
++		fprintf ( stderr, " Error is occurred in re_write_if_fail.\n" );
+ 		goto EXIT;
+ 	}
+ 
+@@ -590,7 +590,7 @@ SANE_Int sane_pdf_start_page(
+ 		goto EXIT;
+ 	}
+ 	if ( ( ldata = re_write_if_fail( pwork->fd, str, len ) ) < 0 ) {
+-		fprintf ( stderr, " Error is occured in re_write_if_fail.\n" );
++		fprintf ( stderr, " Error is occurred in re_write_if_fail.\n" );
+ 		goto EXIT;
+ 	}
+ 	/* write Contents(2) */
+@@ -602,7 +602,7 @@ SANE_Int sane_pdf_start_page(
+ 		goto EXIT;
+ 	}
+ 	if ( ( ldata = re_write_if_fail( pwork->fd, str, len ) ) < 0 ) {
+-		fprintf ( stderr, " Error is occured in re_write_if_fail.\n" );
++		fprintf ( stderr, " Error is occurred in re_write_if_fail.\n" );
+ 		goto EXIT;
+ 	}
+ 
+@@ -613,7 +613,7 @@ SANE_Int sane_pdf_start_page(
+ 		goto EXIT;
+ 	}
+ 	if ( ( ldata = re_write_if_fail( pwork->fd, str, len ) ) < 0 ) {
+-		fprintf ( stderr, " Error is occured in re_write_if_fail.\n" );
++		fprintf ( stderr, " Error is occurred in re_write_if_fail.\n" );
+ 		goto EXIT;
+ 	}
+ 
+@@ -631,7 +631,7 @@ SANE_Int sane_pdf_start_page(
+ 		goto EXIT;
+ 	}
+ 	if ( ( ldata = re_write_if_fail( pwork->fd, str, len ) ) < 0 ) {
+-		fprintf ( stderr, " Error is occured in re_write_if_fail.\n" );
++		fprintf ( stderr, " Error is occurred in re_write_if_fail.\n" );
+ 		goto EXIT;
+ 	}
+ 
+@@ -652,7 +652,7 @@ SANE_Int sane_pdf_start_page(
+ 		goto EXIT;
+ 	}
+ 	if ( ( ldata = re_write_if_fail( pwork->fd, str, len ) ) < 0 ) {
+-		fprintf ( stderr, " Error is occured in re_write_if_fail.\n" );
++		fprintf ( stderr, " Error is occurred in re_write_if_fail.\n" );
+ 		goto EXIT;
+ 	}
+ 
+@@ -684,7 +684,7 @@ SANE_Int sane_pdf_end_page( void *pw )
+ 		goto EXIT;
+ 	}
+ 	if ( ( ldata = re_write_if_fail( pwork->fd, str, len ) ) < 0 ) {
+-		fprintf ( stderr, " Error is occured in re_write_if_fail.\n" );
++		fprintf ( stderr, " Error is occurred in re_write_if_fail.\n" );
+ 		goto EXIT;
+ 	}
+ 
+@@ -702,7 +702,7 @@ SANE_Int sane_pdf_end_page( void *pw )
+ 		goto EXIT;
+ 	}
+ 	if ( ( ldata = re_write_if_fail( pwork->fd, str, len ) ) < 0 ) {
+-		fprintf ( stderr, " Error is occured in re_write_if_fail.\n" );
++		fprintf ( stderr, " Error is occurred in re_write_if_fail.\n" );
+ 		goto EXIT;
+ 	}
+ 
