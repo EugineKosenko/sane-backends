@@ -240,6 +240,9 @@ usb 0x0924 0x3da4
 #Xerox WorkCentre 4118 Series
 usb 0x0924 0x420c
 
+#Xerox WorkCentre PE114 Series (host-based GDI, Samsung SCX-4100 OEM clone)
+usb 0x0924 0x423b
+
 #Xerox WorkCentre 3119 Series
 usb 0x0924 0x4265
 

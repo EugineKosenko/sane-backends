@@ -1928,6 +1928,7 @@ static void libusb_scan_devices(void)
 		    case LIBUSB_CLASS_VENDOR_SPEC:
 		    case LIBUSB_CLASS_PER_INTERFACE:
 		    case LIBUSB_CLASS_PTP:
+		    case LIBUSB_CLASS_PRINTER:	/* GDI-based combo printer/scanner, e.g. Xerox WorkCentre PE114e */
 		    case 16:	/* data? */
 		      found = SANE_TRUE;
 		      break;
